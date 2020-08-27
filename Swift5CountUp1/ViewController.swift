@@ -9,12 +9,52 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    @IBOutlet var countUpLabel: UILabel!
+    
+    var count = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        countUpLabel.text = "0"
+        
     }
 
-
+    @IBAction func plus(_ sender: Any) {
+        
+        count = count + 1
+        
+        countUpLabel.text = String(count)
+        
+        if count >= 10{
+            
+            changeTextColoer()
+        }
+    }
+    
+    @IBAction func minus(_ sender: Any) {
+        
+        count = count - 1
+        countUpLabel.text = String(count)
+        
+        if count <= 0{
+            resetColoer()
+        }
+        
+        
+    }
+    
+    func changeTextColoer(){
+        countUpLabel.textColor = .yellow
+    }
+    
+    func resetColoer(){
+        
+        countUpLabel.textColor = .white
+    }
+    
 }
 
